@@ -52,5 +52,11 @@
     history.size = 10000;
   };
 
+  programs.git = {
+    enable = true;
+    userEmail = "dgramopadhye@gmail.com";
+    userName = "Dhruv Gramopadhye";
+  };
+
   programs.home-manager.enable = true;
 }
