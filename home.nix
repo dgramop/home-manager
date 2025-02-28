@@ -15,6 +15,10 @@
     trunk
     tree
     eza
+    krita
+    alacritty
+    d2
+    tmux
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
