@@ -19,6 +19,8 @@
     alacritty
     d2
     tmux
+    gnuradio
+    jq
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
