@@ -15,8 +15,11 @@
     trunk
     tree
     eza
-    gnuradio
+    krita
+    alacritty
+    d2
     tmux
+    gnuradio
     jq
   ];
 
@@ -44,6 +47,11 @@
     EDITOR = "nvim";
   };
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -59,7 +67,12 @@
     enable = true;
     userEmail = "dgramopadhye@gmail.com";
     userName = "Dhruv Gramopadhye";
+    extraConfig = {
+      push.autoSetupRemote = true;
+    };
   };
+
+  programs.starship.enable = true;
 
   programs.home-manager.enable = true;
 }
