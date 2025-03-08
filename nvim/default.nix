@@ -17,6 +17,7 @@
 
     plugins = with pkgs.vimPlugins; [
       vim-nix
+      vim-surround
       nvim-treesitter.withAllGrammars
       plenary-nvim 
       gruvbox-nvim

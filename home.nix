@@ -15,12 +15,13 @@
     trunk
     tree
     eza
-    krita
     alacritty
     d2
     tmux
     gnuradio
     jq
+    gh
+    wget
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
