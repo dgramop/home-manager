@@ -22,6 +22,10 @@
     jq
     gh
     wget
+    cmake
+    htop
+    darwin.lsusb
+    localsend
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -40,7 +44,10 @@
 
     ".config/alacritty/alacritty.toml".text = ''
       [font]
-      size = 16
+      size = 14
+
+      [terminal]
+      shell = "/Users/dgramop/.nix-profile/bin/zsh"
       '';
   };
 
