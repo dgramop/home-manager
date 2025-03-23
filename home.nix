@@ -55,6 +55,8 @@
     EDITOR = "nvim";
   };
 
+  home.sessionPath = ["/nix/var/nix/profiles/default/bin" "/Users/dgramop/.nix-profile/bin/"];
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -67,6 +69,7 @@
 
     shellAliases = {
       ls = "eza";
+      vim = "nvim";
     };
     history.size = 10000;
   };
@@ -81,6 +84,8 @@
   };
 
   programs.starship.enable = true;
+  home.shell.enableZshIntegration = true;
+  home.shell.enableBashIntegration = true;
 
   programs.home-manager.enable = true;
 }
