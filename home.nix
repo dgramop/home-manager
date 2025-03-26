@@ -111,6 +111,7 @@ in {
 
       shellAliases = {
         ls = "eza";
+        rf = "nix develop .#nightly --command bash -c \"cargo fmt\"";
       };
       history.size = 10000;
     };
