@@ -26,6 +26,7 @@
     htop
     darwin.lsusb
     localsend
+    _1password-cli
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
