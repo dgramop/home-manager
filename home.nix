@@ -1,86 +1,23 @@
-{ config, pkgs, lib, ... }:
-
-{
+{pkgs, lib, config, ...}: {
   imports = [
-    ./nvim
+    ./common.nix
   ];
 
-  home.username = "dgramop";
-  home.homeDirectory = "/Users/dgramop";
-
-  home.stateVersion = "24.11";
-
-  home.packages = with pkgs; [
-    rustup
-    trunk
-    tree
-    eza
-    alacritty
-    d2
-    tmux
-    gnuradio
-    jq
-    gh
-    wget
-    cmake
-    htop
-    darwin.lsusb
-    localsend
-    _1password-cli
-  ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
-    ".config/alacritty/alacritty.toml".text = ''
-      [font]
-      size = 14
-
-      [terminal]
-      shell = "/Users/dgramop/.nix-profile/bin/zsh"
-      '';
-  };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
-  home.sessionPath = ["/nix/var/nix/profiles/default/bin" "/Users/dgramop/.nix-profile/bin/"];
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ls = "eza";
-      vim = "nvim";
+  config = {
+    home.username = "dgramop";
+    home.homeDirectory = "/Users/dgramop";
+    common = {
+      enable = true;
+      email = "dgramopadhye@gmail.com";
+      name = "Dhruv Gramopadhye";
     };
-    history.size = 10000;
-  };
 
-  programs.git = {
-    enable = true;
-    userEmail = "dgramopadhye@gmail.com";
-    userName = "Dhruv Gramopadhye";
-    extraConfig = {
-      push.autoSetupRemote = true;
+    home.packages = with pkgs; [
+      darwin.lsusb
+      gnuradio
+    ];
+
+    programs.git.extraConfig = {
       gpg = {
         format = "ssh";
       };
@@ -95,10 +32,4 @@
       };
     };
   };
-
-  programs.starship.enable = true;
-  home.shell.enableZshIntegration = true;
-  home.shell.enableBashIntegration = true;
-
-  programs.home-manager.enable = true;
 }

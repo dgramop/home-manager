@@ -78,13 +78,12 @@ lsp.on_attach(function(client, bufnr)
   --vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "<leader>en", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "<leader>ep", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 lsp.new_client({
   name = 'rust-analyzer',
-  cmd = {'rust-analyzer'},
+  cmd = {'/home/dgramopadhye/.nix-profile/bin/rust-analyzer'},
   filetypes = { 'rs', 'rust' },
   root_dir = function()
     return lsp.dir.find_first({ 'Cargo.lock' })

@@ -49,6 +49,7 @@ vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
-vim.o.cmdheight = 1
+vim.o.wrap = true
+vim.o.textwidth = 100
 
-vim.api.nvim_set_option("clipboard","unnamed")
+vim.o.cmdheight = 1
