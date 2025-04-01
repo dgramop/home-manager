@@ -1,12 +1,17 @@
-{pkgs, lib, config, ...}: 
-let cfg = config.personal; in {
-  imports = [];
+{pkgs, lib, config, ...}: {
+  imports = [
+    ./common.nix
+  ];
 
-  options = {
-    personal.enable = lib.mkEnableOption "Enable Personal";
-  };
+  config = {
+    home.username = "dgramop";
+    home.homeDirectory = "/Users/dgramop";
+    common = {
+      enable = true;
+      email = "dgramopadhye@gmail.com";
+      name = "Dhruv Gramopadhye";
+    };
 
-  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       darwin.lsusb
       gnuradio

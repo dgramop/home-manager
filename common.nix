@@ -1,22 +1,26 @@
-{ config, pkgs, ... }: let
-username = "dgramopadhye";
-homedir = "/home/dgramopadhye";
-email = "dgramopadhye@anduril.com";
-name = "Dhruv Gramopadhye";
-in {
+{ config, lib, pkgs, ... }: {
   imports = [
     ./nvim
-    ./work.nix
-    ./personal.nix
   ];
 
-  config = {
-    home.username = "${username}";
-    home.homeDirectory = "${homedir}";
+  options = {
+    common.enable = lib.mkEnableOption "Enable Dhruv's Common Home-Manager Config";
+    common.name = lib.mkOption {
+      type = lib.types.string;
+      default = "Unnamed Nochanges";
+      example = "Dhruv Gramopadhye";
+      description = "Full name";
+    };
+    common.email = lib.mkOption {
+      type = lib.types.string;
+      default = "test@example.com";
+      example = "dgramopadhye@gmail.com";
+      description = "User's email";
+    };
+  };
 
-    work.enable = true;
-    personal.enable = false;
 
+  config = lib.mkIf config.common.enable {
     home.packages = with pkgs; [
       rustup
       trunk
@@ -49,7 +53,7 @@ in {
         size = 14
 
         [terminal]
-        shell = "${homedir}/.nix-profile/bin/zsh"
+        shell = "${config.home.homeDirectory}/.nix-profile/bin/zsh"
         '';
     };
 
@@ -57,7 +61,7 @@ in {
       EDITOR = "nvim";
     };
 
-    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${homedir}/.nix-profile/bin/"];
+    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/"];
 
     home.shellAliases = {
       ls = "eza";
@@ -80,8 +84,8 @@ in {
 
     programs.git = {
       enable = true;
-      userEmail = "${email}";
-      userName = "${name}";
+      userEmail = "${config.common.email}";
+      userName = "${config.common.name}";
       extraConfig = {
         push.autoSetupRemote = true;
         init.defaultBranch = "master";
