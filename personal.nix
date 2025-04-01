@@ -1,4 +1,4 @@
-{lib, config, ...}: 
+{pkgs, lib, config, ...}: 
 let cfg = config.personal; in {
   imports = [];
 
@@ -7,7 +7,7 @@ let cfg = config.personal; in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [
+    home.packages = with pkgs; [
       darwin.lsusb
       gnuradio
     ];
