@@ -1,5 +1,8 @@
 { config, pkgs, ... }: let
 lattice = (builtins.getFlake "git+ssh://git@ghe.anduril.dev/anduril/latticectl?rev=292966803a03b4a21ee1ea6538e8696287e8b6cc").packages.x86_64-linux.default;
+username = "dgramopadhye";
+homedir = "/home/dgramopadhye";
+email = "dgramopadhye@anduril.com";
 in {
   imports = [
     ./nvim
@@ -7,8 +10,8 @@ in {
 
   config = {
 
-    home.username = "dgramopadhye";
-    home.homeDirectory = "/home/dgramopadhye";
+    home.username = "${username}";
+    home.homeDirectory = "${homedir}";
 
     home.packages = with pkgs; [
       rustup
@@ -24,7 +27,7 @@ in {
       wget
       cmake
       htop
-      darwin.lsusb
+      #darwin.lsusb
       localsend
       _1password-cli
       geogebra6
@@ -45,7 +48,7 @@ in {
         size = 14
 
         [terminal]
-        shell = "/home/dgramopadhye/.nix-profile/bin/zsh"
+        shell = "${homedir}/.nix-profile/bin/zsh"
         '';
     };
 
@@ -53,27 +56,16 @@ in {
       EDITOR = "nvim";
     };
 
-    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "/home/dgramopadhye/.nix-profile/bin/"];
+    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${homedir}/.nix-profile/bin/"];
 
     programs.bash = {
       enable = true;
       enableCompletion = true;
     };
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-
-      shellAliases = {
-        ls = "eza";
-        vim = "nvim";
-      };
-    };
-
     programs.git = {
       enable = true;
-      userEmail = "dgramopadhye@anduril.com";
+      userEmail = "${email}";
       userName = "Dhruv Gramopadhye";
       extraConfig = {
         push.autoSetupRemote = true;
@@ -94,15 +86,8 @@ in {
     };
 
     programs.starship.enable = true;
-    home.shell.enableZshIntegration = true;
-    home.shell.enableBashIntegration = true;
 
     programs.home-manager.enable = true;
-
-    programs.bash = {
-      enable = true;
-      enableCompletion = true;
-    };
 
     programs.zsh = {
       enable = true;
@@ -111,6 +96,7 @@ in {
 
       shellAliases = {
         ls = "eza";
+        vim = "nvim";
         rf = "nix develop .#nightly --command bash -c \"cargo fmt\"";
       };
       history.size = 10000;
