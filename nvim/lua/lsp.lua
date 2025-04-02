@@ -83,7 +83,7 @@ end)
 
 lsp.new_client({
   name = 'rust-analyzer',
-  cmd = {'/home/dgramopadhye/.nix-profile/bin/rust-analyzer'},
+  cmd = {os.getenv("HOME").."/.nix-profile/bin/rust-analyzer"},
   filetypes = { 'rs', 'rust' },
   root_dir = function()
     return lsp.dir.find_first({ 'Cargo.lock' })
