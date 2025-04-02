@@ -17,6 +17,20 @@
       gnuradio
     ];
 
+    programs.ssh = {
+      enable = true;
+      # the "2BUA8C4S2C" part of the path is well-defined and likely to remain consistent. it is a
+      # team identifier for all 1password/agilebits applications - and isn't randomly generated per
+      # install
+      extraConfig = ''
+        Host btlst
+            Hostname 10.56.0.4
+
+        Host *
+            IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      '';
+    };
+
     programs.git.extraConfig = {
       gpg = {
         format = "ssh";
