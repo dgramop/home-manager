@@ -93,13 +93,5 @@
     };
 
     programs.home-manager.enable = true;
-
-    xdg.enable = true;
-    xdg.desktopEntries = {
-      alacritty = {
-        name = "Alacritty";
-        exec = "nix run --impure github:nix-community/nixGL -- alacritty";
-      };
-    };
   };
 }
