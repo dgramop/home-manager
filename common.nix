@@ -34,6 +34,7 @@
       wget
       cmake
       htop
+      btop
       localsend
       _1password-cli
       geogebra6
