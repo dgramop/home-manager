@@ -99,6 +99,17 @@ lsp.new_client({
   end
 })
 
+lsp.new_client({
+  name = 'nil',
+  cmd = { 'nil' },
+  filetypes = { 'nix' },
+  root_dir = function()
+    return lsp.dir.find_first({ 'flake.nix' })
+  end
+})
+
+
+
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
     local default_diagnostic_handler = vim.lsp.handlers[method]
     vim.lsp.handlers[method] = function(err, result, context, config)
