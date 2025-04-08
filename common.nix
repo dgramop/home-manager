@@ -34,9 +34,11 @@
       wget
       cmake
       htop
+      btop
       localsend
       _1password-cli
       geogebra6
+      nil
     ];
     home.stateVersion = "24.11";
 
