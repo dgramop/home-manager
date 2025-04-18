@@ -39,6 +39,7 @@
       _1password-cli
       geogebra6
       nil
+      util-linux
     ];
     home.stateVersion = "24.11";
 
@@ -57,6 +58,10 @@
         [terminal]
         shell = "${config.home.homeDirectory}/.nix-profile/bin/zsh"
         '';
+
+        ".config/terminal-colors.d/cal.scheme".text = ''
+        weekend 90
+        today 1;30;42'';
     };
 
     home.sessionVariables = {
