@@ -39,6 +39,7 @@
       _1password-cli
       geogebra6
       nil
+      delta
     ];
     home.stateVersion = "24.11";
 
@@ -95,5 +96,13 @@
     };
 
     programs.home-manager.enable = true;
+
+    programs.git.extraConfig = {
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      delta.navigate = true;
+      delta.dark = true;
+      merge.conflictstyle = true;
+    };
   };
 }
