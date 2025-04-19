@@ -73,6 +73,8 @@
     home.shellAliases = {
       ls = "eza";
       vim = "nvim";
+      nbt = "nix build && readlink result && nix copy `readlink result` --to";
+      nd = "nix develop";
     };
 
     programs.bash = {
