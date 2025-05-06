@@ -76,6 +76,7 @@
       vim = "nvim";
       nbt = "nix build && readlink result && nix copy `readlink result` --to";
       nd = "nix develop";
+      gl = "git log --oneline --graph master HEAD";
     };
 
     programs.bash = {
@@ -96,6 +97,7 @@
       enable = true;
       userEmail = "${config.common.email}";
       userName = "${config.common.name}";
+      lfs.enable = true;
       extraConfig = {
         push.autoSetupRemote = true;
         init.defaultBranch = "master";
@@ -109,7 +111,7 @@
       interactive.diffFilter = "delta --color-only";
       delta.navigate = true;
       delta.dark = true;
-      merge.conflictstyle = true;
+      merge.conflictstyle = "zdiff3";
     };
   };
 }
