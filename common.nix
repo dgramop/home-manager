@@ -66,7 +66,7 @@
     };
 
     home.sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
     };
 
     home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/"];
@@ -92,6 +92,22 @@
     };
     
     programs.starship.enable = true;
+
+    programs.helix= {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        theme = "gruvbox";
+        keys.normal."\\" = {
+          "\\" = "changed_file_picker";
+          "s" = "symbol_picker";
+          "f" = "code_action";
+          "h" = "hover";
+          "l" = "goto_previous_buffer";
+          "o" = "file_picker";
+        };
+      };
+    };
 
     programs.git = {
       enable = true;
