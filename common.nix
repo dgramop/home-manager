@@ -73,7 +73,8 @@
 
     home.shellAliases = {
       ls = "eza";
-      vim = "nvim";
+      vim = "hx";
+      nvim = "hx";
       nbt = "nix build && readlink result && nix copy `readlink result` --to";
       nd = "nix develop";
       gl = "git log --oneline --graph master HEAD";
@@ -116,7 +117,7 @@
             "h" = "hover";
             "p" = "goto_previous_buffer";
             "n" = "goto_next_buffer";
-            "l" = "jump_backwards";
+            "l" = "jump_backward";
             "o" = "file_picker";
           };
         };
