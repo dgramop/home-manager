@@ -98,13 +98,27 @@
       defaultEditor = true;
       settings = {
         theme = "gruvbox";
-        keys.normal."\\" = {
-          "\\" = "changed_file_picker";
-          "s" = "symbol_picker";
-          "f" = "code_action";
-          "h" = "hover";
-          "l" = "goto_previous_buffer";
-          "o" = "file_picker";
+        editor = {
+          mouse = false;
+          line-number = "relative";
+          auto-pairs = false;
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
+        };
+        keys.normal = {
+          "0" = "goto_line_start";
+          "\\" = {
+            "\\" = "changed_file_picker";
+            "s" = "symbol_picker";
+            "f" = "code_action";
+            "h" = "hover";
+            "p" = "goto_previous_buffer";
+            "n" = "goto_next_buffer";
+            "l" = "jump_backwards";
+            "o" = "file_picker";
+          };
         };
       };
     };
