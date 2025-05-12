@@ -66,14 +66,15 @@
     };
 
     home.sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
     };
 
     home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/"];
 
     home.shellAliases = {
       ls = "eza";
-      vim = "nvim";
+      vim = "hx";
+      nvim = "hx";
       nbt = "nix build && readlink result && nix copy `readlink result` --to";
       nd = "nix develop";
       gl = "git log --oneline --graph master HEAD";
@@ -92,6 +93,36 @@
     };
     
     programs.starship.enable = true;
+
+    programs.helix= {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        theme = "gruvbox";
+        editor = {
+          mouse = false;
+          line-number = "relative";
+          auto-pairs = false;
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
+        };
+        keys.normal = {
+          "0" = "goto_line_start";
+          "\\" = {
+            "\\" = "changed_file_picker";
+            "s" = "symbol_picker";
+            "f" = "code_action";
+            "h" = "hover";
+            "p" = "goto_previous_buffer";
+            "n" = "goto_next_buffer";
+            "l" = "jump_backward";
+            "o" = "file_picker";
+          };
+        };
+      };
+    };
 
     programs.git = {
       enable = true;

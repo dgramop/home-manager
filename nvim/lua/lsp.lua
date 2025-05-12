@@ -83,7 +83,7 @@ end)
 
 lsp.new_client({
   name = 'rust-analyzer',
-  cmd = {os.getenv("HOME").."/.nix-profile/bin/rust-analyzer"},
+  cmd = {"rust-analyzer"},
   filetypes = { 'rs', 'rust' },
   root_dir = function()
     return lsp.dir.find_first({ 'Cargo.lock' })
@@ -93,7 +93,7 @@ lsp.new_client({
 lsp.new_client({
   name = 'clangd',
   cmd = { 'clangd' },
-  filetypes = { 'c', 'cpp', 'cc' },
+  filetypes = { 'c', 'cpp', 'cc', 'h', 'hpp' },
   root_dir = function()
     return lsp.dir.find_first({ 'build' })
   end
@@ -108,7 +108,11 @@ lsp.new_client({
   end
 })
 
-
+lsp.new_client({
+  name = 'wgsl',
+  cmd = { '/home/dgramopadhye/.cargo/bin/wgsl-analyzer' },
+  filetypes = { 'wgsl' },
+})
 
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
     local default_diagnostic_handler = vim.lsp.handlers[method]
