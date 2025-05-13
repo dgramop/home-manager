@@ -101,6 +101,8 @@
         theme = "gruvbox";
         editor = {
           mouse = false;
+          indent-heuristic = "simple";
+          auto-format = false;
           line-number = "relative";
           auto-pairs = false;
           end-of-line-diagnostics = "hint";
