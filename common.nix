@@ -106,12 +106,13 @@
           line-number = "relative";
           auto-pairs = false;
           end-of-line-diagnostics = "hint";
-          inline-diagnostics = {
-            cursor-line = "warning";
-          };
         };
         keys.normal = {
           "0" = "goto_line_start";
+          "C-h" = "select_prev_sibling";
+          "C-j" = "shrink_selection";
+          "C-k" = "expand_selection";
+          "C-l" = "select_next_sibling";
           "\\" = {
             "\\" = "changed_file_picker";
             "s" = "symbol_picker";
