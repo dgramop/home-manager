@@ -113,15 +113,20 @@
           "C-j" = "shrink_selection";
           "C-k" = "expand_selection";
           "C-l" = "select_next_sibling";
+          "C-r" = "redo";
+          "G"."G" = "goto_last_line";
           "\\" = {
             "\\" = "changed_file_picker";
-            "s" = "symbol_picker";
+            "s" = "workspace_symbol_picker";
             "f" = "code_action";
             "h" = "hover";
             "p" = "goto_previous_buffer";
             "n" = "goto_next_buffer";
             "l" = "jump_backward";
             "o" = "file_picker";
+            "t"."[" = "goto_type_definition";
+            "[" = "goto_definition";
+            "]" = "goto_reference";
           };
         };
       };
