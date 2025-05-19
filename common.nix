@@ -40,6 +40,7 @@
       geogebra6
       nil
       util-linux
+      julia-bin
       delta
     ];
     home.stateVersion = "24.11";
@@ -75,8 +76,17 @@
       ls = "eza";
       vim = "hx";
       nvim = "hx";
+
+      # Nix Build To
       nbt = "nix build && readlink result && nix copy `readlink result` --to";
+
+      # Nix Develop
       nd = "nix develop";
+
+      # Nix Build
+      nb = "nix build";
+
+      # Git Log
       gl = "git log --oneline --graph master HEAD";
     };
 

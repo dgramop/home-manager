@@ -15,6 +15,8 @@
     home.packages = with pkgs; [
       darwin.lsusb
       gnuradio
+      pkg-config
+      ghidra-bin
     ];
 
     programs.ssh = {
