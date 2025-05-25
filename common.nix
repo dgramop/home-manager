@@ -58,7 +58,7 @@
         size = 14
 
         [terminal]
-        shell = "${config.home.homeDirectory}/.nix-profile/bin/zsh"
+        shell = "${config.home.homeDirectory}/.nix-profile/bin/bash"
         '';
 
         ".config/terminal-colors.d/cal.scheme".text = ''
@@ -93,13 +93,7 @@
     programs.bash = {
       enable = true;
       enableCompletion = true;
-    };
-
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      history.size = 10000;
+      historyFileSize = 10000;
     };
     
     programs.starship.enable = true;

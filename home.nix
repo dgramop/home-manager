@@ -17,6 +17,7 @@
       gnuradio
       pkg-config
       ghidra-bin
+      platformio
     ];
 
     programs.ssh = {
