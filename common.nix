@@ -42,6 +42,7 @@
       util-linux
       julia-bin
       delta
+      drawio
     ];
     home.stateVersion = "24.11";
 
