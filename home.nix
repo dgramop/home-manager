@@ -18,6 +18,7 @@
       pkg-config
       ghidra-bin
       platformio
+      pulseview
     ];
 
     programs.ssh = {
