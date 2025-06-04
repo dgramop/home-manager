@@ -89,6 +89,9 @@
 
       # Git Log
       gl = "git log --oneline --graph master HEAD";
+
+      # Nix Flake LOck (--update-input)
+      nflo = "nix flake lock --update-input";
     };
 
     programs.bash = {
@@ -120,6 +123,7 @@
           "C-l" = "select_next_sibling";
           "C-r" = "redo";
           "G"."G" = "goto_last_line";
+          "#" = "search_selection_detect_word_boundaries";
           "\\" = {
             "\\" = "changed_file_picker";
             "s" = "workspace_symbol_picker";
