@@ -1,8 +1,4 @@
 { config, lib, pkgs, ... }: {
-  imports = [
-    ./nvim
-  ];
-
   options = {
     common.enable = lib.mkEnableOption "Enable Dhruv's Common Home-Manager Config";
     common.name = lib.mkOption {
