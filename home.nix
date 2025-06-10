@@ -19,6 +19,7 @@
       ghidra-bin
       platformio
       pulseview
+      sigrok-cli
     ];
 
     programs.ssh = {
