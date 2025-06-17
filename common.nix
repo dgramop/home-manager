@@ -31,14 +31,11 @@
       cmake
       htop
       btop
-      localsend
       _1password-cli
-      geogebra6
       nil
       util-linux
       julia-bin
       delta
-      drawio
     ];
     home.stateVersion = "25.05";
 
