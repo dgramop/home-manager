@@ -73,6 +73,7 @@
       ls = "eza";
       vim = "hx";
       nvim = "hx";
+      nano = "hx";
 
       # Nix Build To
       nbt = "nix build && readlink result && nix copy `readlink result` --to";
@@ -94,6 +95,9 @@
       enable = true;
       enableCompletion = true;
       historyFileSize = 10000;
+      sessionVariables = {
+        EDITOR = "hx";
+      };
     };
     
     programs.starship.enable = true;
