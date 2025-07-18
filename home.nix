@@ -38,6 +38,11 @@
 
     programs.jujutsu = {
       enable = true;
+      settings = {
+        user.name = config.common.name;
+        user.email = config.common.email;
+        ui.editor = "hx";
+      };
     };
 
     programs.git.extraConfig = {
