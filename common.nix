@@ -39,6 +39,7 @@
       julia-bin
       delta
       drawio
+      meld
     ];
     home.stateVersion = "24.11";
 
@@ -152,7 +153,14 @@
       };
     };
 
-    programs.home-manager.enable = true;
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        user.name = config.common.name;
+        user.email = config.common.email;
+        ui.editor = "hx";
+      };
+    };
 
     programs.git.extraConfig = {
       core.pager = "delta";
@@ -161,5 +169,7 @@
       delta.dark = true;
       merge.conflictstyle = "zdiff3";
     };
+
+    programs.home-manager.enable = true;
   };
 }
