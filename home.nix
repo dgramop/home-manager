@@ -36,6 +36,10 @@
       '';
     };
 
+    programs.jujutsu = {
+      enable = true;
+    };
+
     programs.git.extraConfig = {
       gpg = {
         format = "ssh";
