@@ -36,6 +36,8 @@
       util-linux
       julia-bin
       delta
+      amber
+      octaveFull
     ];
     home.stateVersion = "25.05";
 
