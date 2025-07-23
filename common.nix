@@ -38,6 +38,7 @@
       delta
       amber
       octaveFull
+      meld
     ];
     home.stateVersion = "25.05";
 
@@ -151,7 +152,14 @@
       };
     };
 
-    programs.home-manager.enable = true;
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        user.name = config.common.name;
+        user.email = config.common.email;
+        ui.editor = "hx";
+      };
+    };
 
     programs.git.extraConfig = {
       core.pager = "delta";
@@ -160,5 +168,7 @@
       delta.dark = true;
       merge.conflictstyle = "zdiff3";
     };
+
+    programs.home-manager.enable = true;
   };
 }
