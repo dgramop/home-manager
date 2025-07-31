@@ -84,6 +84,8 @@
       # Nix Build
       nb = "nix build";
 
+      rr = "readlink result";
+
       # Git Log
       gl = "git log --oneline --graph master HEAD";
 
