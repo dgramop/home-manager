@@ -107,6 +107,9 @@
     programs.helix= {
       enable = true;
       defaultEditor = true;
+      languages = {
+        language-server.rust-analyzer.config.cargo.features = ["all"];
+      };
       settings = {
         theme = "gruvbox";
         editor = {
