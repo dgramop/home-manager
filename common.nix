@@ -2,13 +2,13 @@
   options = {
     common.enable = lib.mkEnableOption "Enable Dhruv's Common Home-Manager Config";
     common.name = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "Unnamed Nochanges";
       example = "Dhruv Gramopadhye";
       description = "Full name";
     };
     common.email = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "test@example.com";
       example = "dgramopadhye@gmail.com";
       description = "User's email";
