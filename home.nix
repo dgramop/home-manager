@@ -31,6 +31,9 @@
         Host btlst
             Hostname 10.56.0.4
 
+        Host nuc
+            Hostname 192.168.8.215
+
         Host *
             IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       '';
