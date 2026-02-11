@@ -44,6 +44,11 @@
       '';
     };
 
+    programs.bash.shellAliases = {
+      specter = "SSH_IDENT=~/.ssh/specter $SHELL";
+      home = "SSH_IDENT=~/.ssh/id_rsa $SHELL";
+    };
+
     programs.git.extraConfig = {
       gpg = {
         format = "ssh";
