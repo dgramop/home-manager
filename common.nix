@@ -72,7 +72,7 @@
       QUICHE_AWS_ACCESS_KEY_ID = "op://QUICHE_AWS_ACCESS_KEY_ID";
     };
 
-    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/" "${config.home.homeDirectory}/.local/bin"];
+    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/" "${config.home.homeDirectory}/.local/bin" "${config.home.homeDirectory}/.cargo/bin"];
 
     home.shellAliases = {
       ls = "eza";
