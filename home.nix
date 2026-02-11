@@ -40,13 +40,13 @@
             IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
         Host github.com
-            IdentityFile ''${SSH_IDENT}
+            IdentityFile ''${GH_IDENT}
       '';
     };
 
     programs.bash.shellAliases = {
-      specter = "SSH_IDENT=~/.ssh/specter $SHELL";
-      home = "SSH_IDENT=~/.ssh/id_rsa $SHELL";
+      specter = "GH_IDENT=~/.ssh/specter $SHELL";
+      home = "GH_IDENT=~/.ssh/id_rsa $SHELL";
     };
 
     programs.git.extraConfig = {
