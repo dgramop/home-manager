@@ -68,8 +68,9 @@
 
     home.sessionVariables = {
       EDITOR = "hx";
-      QUICHE_AWS_SECRET_ACCESS_KEY = "op://QUICHE_AWS_SECRET_ACCESS_KEY";
-      QUICHE_AWS_ACCESS_KEY_ID = "op://QUICHE_AWS_ACCESS_KEY_ID";
+      QUICHE_AWS_SECRET_ACCESS_KEY = "op://Personal/QUICHE_AWS_SECRET_ACCESS_KEY/credential";
+      QUICHE_AWS_ACCESS_KEY_ID = "op://Personal/QUICHE_AWS_ACCESS_KEY_ID/credential";
+      QUICHE_DATASTORE = "${config.home.homeDirectory}/.cache/quiche";
     };
 
     home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/" "${config.home.homeDirectory}/.local/bin" "${config.home.homeDirectory}/.cargo/bin"];
@@ -97,9 +98,9 @@
       # Nix Flake LOck (--update-input)
       nflo = "nix flake lock --update-input";
 
-      claude = "~/.local/bin/claude";
-
       rfac = "cargo fmt; git add -A; git commit -m";
+
+      quiche = "op run -- ~/.cargo/bin/quiche";
     };
 
     programs.bash = {
