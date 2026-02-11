@@ -22,6 +22,9 @@
       trunk
       tree
       eza
+      nmap
+      pyright
+      python313Packages.python-lsp-server
       alacritty
       d2
       tmux
@@ -40,7 +43,7 @@
       octaveFull
       meld
     ];
-    home.stateVersion = "25.05";
+    home.stateVersion = "25.11";
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
@@ -65,9 +68,11 @@
 
     home.sessionVariables = {
       EDITOR = "hx";
+      QUICHE_AWS_SECRET_ACCESS_KEY = "op://QUICHE_AWS_SECRET_ACCESS_KEY";
+      QUICHE_AWS_ACCESS_KEY_ID = "op://QUICHE_AWS_ACCESS_KEY_ID";
     };
 
-    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/"];
+    home.sessionPath = ["/nix/var/nix/profiles/default/bin" "${config.home.homeDirectory}/.nix-profile/bin/" "${config.home.homeDirectory}/.local/bin"];
 
     home.shellAliases = {
       ls = "eza";
@@ -91,6 +96,10 @@
 
       # Nix Flake LOck (--update-input)
       nflo = "nix flake lock --update-input";
+
+      claude = "~/.local/bin/claude";
+
+      rfac = "cargo fmt; git add -A; git commit -m";
     };
 
     programs.bash = {
@@ -100,6 +109,13 @@
       sessionVariables = {
         EDITOR = "hx";
       };
+      bashrcExtra = ''
+      . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+      '';
+    };
+
+    programs.zsh = {
+      enable = true;
     };
     
     programs.starship.enable = true;
@@ -108,7 +124,7 @@
       enable = true;
       defaultEditor = true;
       languages = {
-        language-server.rust-analyzer.config.cargo.features = ["all"];
+        # language-server.rust-analyzer.config.cargo.features = ["all"];
       };
       settings = {
         theme = "gruvbox";
@@ -121,6 +137,7 @@
           end-of-line-diagnostics = "hint";
         };
         keys.normal = {
+          "$" = "goto_line_end";
           "0" = "goto_line_start";
           "C-h" = "select_prev_sibling";
           "C-j" = "shrink_selection";
