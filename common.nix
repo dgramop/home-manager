@@ -137,6 +137,10 @@
           auto-pairs = false;
           end-of-line-diagnostics = "hint";
         };
+        keys.visual = {
+          "$" = "goto_line_end";
+          "0" = "goto_line_start";
+        };
         keys.normal = {
           "$" = "goto_line_end";
           "0" = "goto_line_start";

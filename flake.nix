@@ -12,9 +12,9 @@
       config.allowUnfree = true;
     };
   in {
-    packages.homeConfigurations."dgramop" = home-manager.lib.homeManagerConfiguration {
+    packages.homeConfigurations."mac" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home.nix ];
+      modules = [ ./mac.nix ];
     };
   });
 }
