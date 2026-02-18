@@ -64,6 +64,10 @@
         ".config/terminal-colors.d/cal.scheme".text = ''
         weekend 90
         today 1;30;42'';
+
+        ".config/i3/config".text = ''
+          ${builtins.readFile ./i3.conf}
+          '';
     };
 
     home.sessionVariables = {
