@@ -17,9 +17,9 @@
       modules = [ ./mac.nix ];
     };
 
-    packages.homeConfigurations."linux" = home-manager.lib.homeManagerConfiguration {
+    packages.homeConfigurations."specter" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./linux.nix ];
+      modules = [ ./specter.nix ];
     };
   });
 }
