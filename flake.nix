@@ -16,5 +16,10 @@
       inherit pkgs;
       modules = [ ./mac.nix ];
     };
+
+    packages.homeConfigurations."linux" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [ ./linux.nix ];
+    };
   });
 }
