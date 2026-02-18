@@ -10,6 +10,7 @@
       enable = true;
       email = "dgramopadhye@gmail.com";
       name = "Dhruv Gramopadhye";
+      retina = true;
     };
 
     home.packages = with pkgs; [

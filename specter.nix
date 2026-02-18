@@ -10,6 +10,7 @@
       enable = true;
       email = "dhruv@specter.co";
       name = "Dhruv Gramopadhye";
+      retina = false;
     };
 
     home.packages = with pkgs; [

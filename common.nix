@@ -13,6 +13,11 @@
       example = "dgramopadhye@gmail.com";
       description = "User's email";
     };
+    common.retina = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "If this machine has a retina screen";
+    };
   };
 
 
@@ -55,7 +60,7 @@
 
       ".config/alacritty/alacritty.toml".text = ''
         [font]
-        size = 14
+        size = ${if config.common.retina then "14" else "8"}
 
         [terminal]
         shell = "${config.home.homeDirectory}/.nix-profile/bin/bash"
